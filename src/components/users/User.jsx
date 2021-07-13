@@ -1,9 +1,12 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useContext } from 'react';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/Repos';
+import GithubContext from '../../context/github/GithubContext';
 
-const User = ({ user, loading, getUser, repos, getUserRepos, match }) => {
+const User = ({ repos, getUserRepos, match }) => {
+  const githubContext = useContext(GithubContext);
+  const { getUser, loading, user } = githubContext;
   useEffect(() => {
     getUser(match.params.login);
     console.log(match.params.login);
