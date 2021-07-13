@@ -6,7 +6,7 @@ import {
   GET_USER,
 } from '../types';
 
-export default (state, action) => {
+export default function variable(state, action) {
   switch (action.type) {
     case SET_LOADING:
       return {
@@ -40,4 +40,4 @@ export default (state, action) => {
     default:
       return state;
   }
-};
+}
