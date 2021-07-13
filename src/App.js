@@ -32,21 +32,7 @@ const App = () => {
   // }
 
   //Search Github Users
-  const searchUser = async (text) => {
-    try {
-      setLoading(true);
-      const res = await axios.get(
-        `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}
-        &client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-      );
-      setUsers(res.data.items);
-      setLoading(false);
 
-      //console.log(res.data);
-    } catch (error) {
-      console.log(error + 'Viren');
-    }
-  };
   //Get the Single GithubUser
   const getUser = async (username) => {
     try {
@@ -108,7 +94,6 @@ const App = () => {
                 render={(props) => (
                   <Fragment>
                     <Search
-                      searchUser={searchUser}
                       clearUsers={clearUsers}
                       showClear={users.length > 0 ? true : false}
                       showAlert={showAlert}
